@@ -12,8 +12,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Root": "src/",
-            "Root\\Tests": "tests/"
+            "Http": "src/",
+            "Http\\Tests": "tests/"
         }
     }
 }
