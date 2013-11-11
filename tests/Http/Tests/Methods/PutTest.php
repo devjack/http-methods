@@ -19,5 +19,22 @@ class PutTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey("_PUT", get_defined_vars());
     }
 
+    /*
+     * Test the array access methods
+     */
+    public function testArrayAccess()
+    {
+        $requestBody = <<<REQUEST
+boo
+REQUEST;
+
+        (new Put($requestBody))->globalize();
+        global $_PUT;
+
+        $this->setExpectedException('\ErrorException');
+
+        $_PUT['joe'] = 'blogs';
+    }
+
 }
  

@@ -52,7 +52,9 @@ abstract class AbstractMethod implements \ArrayAccess
      * @param null $root Location of the .git directory
      * @param string $tagPrefix Prefix for git tag matching
      */
-    abstract public function __construct();
+    abstract public function __construct($requestBody);
+
+
 
     /**
      * Export the data to a new globals array

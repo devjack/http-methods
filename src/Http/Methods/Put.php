@@ -34,8 +34,9 @@ class Put extends AbstractMethod
      * PUT class constructor
      */
 
-    public function __construct()
+    public function __construct($requestBody = "")
     {
+        $this->data = $requestBody;
         $this->global = "_PUT";
     }
 }
