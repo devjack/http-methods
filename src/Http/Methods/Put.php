@@ -30,5 +30,12 @@ use Http\Methods\AbstractMethod;
 
 class Put extends AbstractMethod
 {
+    /**
+     * PUT class constructor
+     */
 
+    public function __construct()
+    {
+        $this->global = "_PUT";
+    }
 }

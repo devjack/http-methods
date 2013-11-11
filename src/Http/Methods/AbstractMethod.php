@@ -29,7 +29,7 @@ namespace Http\Methods;
  */
 
 
-class AbstractMethod implements \ArrayAccess
+abstract class AbstractMethod implements \ArrayAccess
 {
 
     /**
@@ -59,6 +59,9 @@ class AbstractMethod implements \ArrayAccess
      */
     public function globalize()
     {
+        $name = $this->global;
+        global $$name;
+        $$name = $this;
 
     }
 
