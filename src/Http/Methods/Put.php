@@ -44,7 +44,8 @@ class Put extends AbstractMethod
      * @return array Returns the data as an array
      */
 
-    public function asArray() {
+    public function asArray()
+    {
         return (array) $this->data;
     }
 }
