@@ -7,22 +7,10 @@ use Http\Methods\Put;
 
 class PutTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * Test that the globalise method correctly creates the global $_PUT;
-     */
-    public function testGlobalise()
-    {
-        (new Put())->globalize();
-        global $_PUT; // Unfortunately you have to manually bring it into 'global' scope.
-
-        $this->assertTrue(isset($_PUT));
-        $this->assertArrayHasKey("_PUT", get_defined_vars());
-    }
-
     /*
-     * Test the array access methods
+     * Test the array writing
      */
-    public function testArrayAccess()
+    public function testArrayWrite()
     {
         $requestBody = <<<REQUEST
 boo
@@ -34,5 +22,18 @@ REQUEST;
         $this->setExpectedException('\ErrorException');
 
         $_PUT['joe'] = 'blogs';
+    }
+
+    /*
+     * Test reading array access
+     */
+    public function testArrayRead()
+    {
+        $requestBody = json_encode(array("key"=>"value"));
+
+        (new Put($requestBody))->globalize();
+        global $_PUT;
+
+        $this->assertEquals("value", $_PUT->asArray()['key']);
     }
 }
