@@ -36,7 +36,15 @@ class Put extends AbstractMethod
 
     public function __construct($requestBody = "")
     {
-        $this->data = $requestBody;
+        $this->data = json_decode($requestBody);
         $this->global = "_PUT";
+    }
+
+    /**
+     * @return array Returns the data as an array
+     */
+
+    public function asArray() {
+        return (array) $this->data;
     }
 }
