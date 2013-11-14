@@ -35,5 +35,7 @@ REQUEST;
         global $_PUT;
 
         $this->assertEquals("value", $_PUT->asArray()['key']);
+        
+        $this->assertEquals("value", (new Put($requestBody))->offsetGet("key"));
     }
 }
