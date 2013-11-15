@@ -38,4 +38,18 @@ REQUEST;
         
         $this->assertEquals("value", (new Put($requestBody))->offsetGet("key"));
     }
+    
+    /**
+     * Test array offset unsets
+     */
+    public function testArrayRemove()
+    {
+        $requestBody = json_encode(array("key"=>"value"));
+        (new Put($requestBody))->globalize();
+        global $_PUT;
+
+        $this->setExpectedException('\ErrorException');
+
+        unset($_PUT['joe']);
+    }
 }
